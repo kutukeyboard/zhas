@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:200,400,700&display=swap");
+
+$roboto: "Roboto Slab", serif;
+$open-sans: "Open Sans", sans-serif;
+
+// colors
+$background-color: rgb(75, 74, 74);
+$border-color: rgba(182, 182, 182, 0.479);
+
+$primary-color: #007bff;
+$primary-border-color: #023f81;
+$primary-btn-color: #023f81;
+
+$secondary-color: #6c757d;
+$secondary-border-color: rgb(75, 74, 74);
+$secondary-btn-color: rgb(75, 74, 74);
+
+$danger-color: #dc3545;
+$warning-color: #ffc107;
+$info-color: #17a2b8;
+
+$light-bg-color: #f8f9fa;
+$dark-bg-color: #343a40;
+
+$primary-dark-color: #607d8b;
+$light-text-color: #fff;
+$text-color: rgb(51, 51, 51);
+$disabled-text-color: rgb(139, 139, 139);
+
+body {
+  font-family: $roboto;
+}

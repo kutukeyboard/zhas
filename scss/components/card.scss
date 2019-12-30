@@ -1,0 +1,172 @@
+@import "../theme";
+
+@mixin st-primary {
+  background-color: $primary-color !important;
+  color: $light-text-color !important;
+  &.bordered {
+    border: 0.5px solid $primary-border-color !important;
+  }
+  & a {
+    color: $primary-btn-color !important;
+    &.btn {
+      background-color: $primary-border-color !important;
+      color: $light-text-color !important;
+    }
+  }
+  & .card-header {
+    background-color: $primary-border-color !important;
+  }
+}
+
+@mixin st-primary-outline {
+  background-color: $light-text-color !important;
+  color: $primary-color !important;
+  &.bordered {
+    border-radius: 5px;
+    border: 1px solid $primary-color !important;
+  }
+  & a {
+    color: $primary-btn-color !important;
+    &.btn {
+      background-color: $primary-color !important;
+      color: $light-text-color !important;
+    }
+  }
+  & .card-header {
+    background-color: $light-bg-color !important;
+    color: $primary-color !important;
+  }
+}
+
+@mixin st-secondary {
+  background-color: $secondary-color !important;
+  color: $light-text-color !important;
+  &.bordered {
+    border: 1px solid $secondary-border-color !important;
+  }
+  & a {
+    color: $secondary-btn-color !important;
+    &.btn {
+      background-color: $secondary-btn-color !important;
+      color: $light-text-color !important;
+    }
+  }
+  & .card-header {
+    background-color: $secondary-border-color !important;
+  }
+}
+
+@mixin st-secondary-outline {
+  background-color: $light-text-color !important;
+  color: $secondary-color !important;
+  &.bordered {
+    border-radius: 5px;
+    border: 1px solid $secondary-color !important;
+  }
+  & a {
+    color: $secondary-btn-color !important;
+    &.btn {
+      background-color: $secondary-color !important;
+      color: $light-text-color !important;
+    }
+  }
+  & .card-header {
+    background-color: $light-bg-color !important;
+    color: $secondary-color !important;
+  }
+}
+
+.card {
+  width: 100%;
+  position: relative;
+  background-color: $light-text-color;
+  color: $text-color;
+  &.shadow {
+    box-shadow: $border-color 2px 3px 6px;
+  }
+  &.bordered {
+    border: 1px solid $border-color !important;
+    border-radius: 5px;
+  }
+  &.style-primary {
+    @include st-primary();
+  }
+  &.style-primary-outline {
+    @include st-primary-outline();
+  }
+  &.style-secondary {
+    @include st-secondary();
+  }
+  &.style-secondary-outline {
+    @include st-secondary-outline();
+  }
+}
+
+.card .border-bottom {
+  border-bottom: solid 1px $border-color;
+  margin-bottom: 10px !important;
+}
+.card > .card-header {
+  font-size: 25px;
+  padding: 9px;
+  color: $light-text-color;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.card .card-body {
+  margin-bottom: 60px;
+  padding: 10px;
+  &:last-child {
+    margin-bottom: 10px !important;
+  }
+}
+
+.card .card-title {
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 5px;
+  & + .card-subtitle {
+    font-size: 15px;
+    color: $disabled-text-color;
+  }
+}
+
+.card .card-subtitle {
+  font-size: 15px;
+  color: $disabled-text-color;
+  padding-bottom: 5px;
+}
+
+.card img {
+  width: 100%;
+  padding: 0px !important;
+  &:first-child {
+    padding: 0px !important;
+    margin-top: 0px !important;
+    border-radius: 5px 5px 0px 0px !important;
+  }
+  &:last-child {
+    border-radius: 0px 0px 5px 5px;
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+    bottom: 0px;
+  }
+}
+
+.card a.btn {
+  border: solid 1px $border-color;
+  background-color: $primary-color;
+  color: $light-text-color;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: smaller;
+  text-decoration: none;
+  text-align: center;
+  position: absolute;
+  right: 10px;
+  left: 10px;
+  bottom: 10px;
+  &:hover {
+    background-color: $primary-dark-color;
+  }
+}
