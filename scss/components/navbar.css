@@ -6,6 +6,10 @@ body {
   overflow-x: hidden;
 }
 
+input[type="checkbox"] {
+  display: none;
+}
+
 nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -40,31 +44,90 @@ nav {
   padding: 5px;
 }
 
+.bar {
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  margin: 6px 20px;
+}
+
+.burger-menu {
+  background-color: #4b4a4a;
+  display: none;
+}
+
+@media only screen and (min-width: 600px) {
+  ul {
+    position: relative;
+  }
+  ul.main-element {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  ul .sub-nav {
+    margin-top: 15px;
+    margin-left: -15px;
+  }
+  ul .sub-nav-1,
+  ul .sub-nav-2 {
+    margin-top: -35px;
+    margin-left: -115px;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .burger-menu {
+    display: block;
+  }
+  #burger:checked ~ ul.main-element {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  ul.main-element {
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  ul .sub-nav {
+    position: absolute;
+    margin-top: -35px;
+    margin-left: -120px;
+  }
+  ul.sub-nav-1,
+  ul .sub-nav-2 {
+    margin-top: -35px;
+    margin-left: -110px;
+  }
+}
+
 ul {
   display: none;
   list-style: none;
   text-decoration: none;
   padding-left: 0px;
-  position: relative;
   background-color: #4b4a4a;
   min-width: 100px;
 }
 
 ul.main-element {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
 }
 
 ul.main-element li {
@@ -77,15 +140,11 @@ ul.main-element li:hover {
 
 ul .sub-nav {
   position: absolute;
-  margin-top: 15px;
-  margin-left: -15px;
 }
 
-ul .sub-nav-1,
+ul.sub-nav-1,
 ul .sub-nav-2 {
   position: absolute;
-  margin-top: -35px;
-  margin-left: -115px;
 }
 
 li:hover > ul.sub-nav,

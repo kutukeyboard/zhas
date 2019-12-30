@@ -1,5 +1,9 @@
 @import "../theme";
 
+input[type="checkbox"] {
+  display: none;
+}
+
 nav {
   display: flex;
   align-items: center;
@@ -24,20 +28,76 @@ nav {
   }
 }
 
+.bar {
+  width: 25px;
+  height: 2px;
+  background-color: $light-text-color;
+  margin: 6px 20px;
+}
+
+.burger-menu {
+  background-color: $background-color;
+  display: none;
+}
+@media only screen and (min-width: 600px) {
+  ul {
+    position: relative;
+    &.main-element {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+    }
+    & .sub-nav {
+      margin-top: 15px;
+      margin-left: -15px;
+    }
+    & .sub-nav-1,
+    .sub-nav-2 {
+      margin-top: -35px;
+      margin-left: -115px;
+    }
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .burger-menu {
+    display: block;
+  }
+  #burger:checked ~ ul.main-element {
+    display: flex;
+  }
+  ul {
+    &.main-element {
+      position: absolute;
+      top: 30px;
+      right: 0px;
+      display: none;
+      flex-direction: column;
+    }
+    & .sub-nav {
+      position: absolute;
+      margin-top: -35px;
+      margin-left: -120px;
+    }
+    &.sub-nav-1,
+    .sub-nav-2 {
+      margin-top: -35px;
+      margin-left: -110px;
+    }
+  }
+}
+
 ul {
   display: none;
   list-style: none;
   text-decoration: none;
   padding-left: 0px;
-  position: relative;
   background-color: $background-color;
   min-width: 100px;
   &.main-element {
-    width: 100%;
-    display: flex;
     justify-content: flex-end;
     align-items: center;
-    flex-direction: row;
+    // flex-direction: row;
     & li {
       padding: 15px;
       &:hover {
@@ -47,14 +107,10 @@ ul {
   }
   & .sub-nav {
     position: absolute;
-    margin-top: 15px;
-    margin-left: -15px;
   }
-  & .sub-nav-1,
+  &.sub-nav-1,
   .sub-nav-2 {
     position: absolute;
-    margin-top: -35px;
-    margin-left: -115px;
   }
 }
 
