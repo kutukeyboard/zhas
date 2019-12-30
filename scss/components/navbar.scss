@@ -1,0 +1,138 @@
+@import "../theme";
+.nav {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  width: 100%;
+  margin: 0px 0px 10px 0px;
+  background-color: $background-color;
+  box-shadow: $border-color 2px 3px 6px;
+  color: $light-text-color;
+  font-size: 15px;
+  font-weight: 200;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.nav > .nav-header {
+  display: flex;
+  font-size: 22px;
+  color: #fff;
+  margin-left: 20px;
+  & img {
+    height: 20px;
+    padding: 5px;
+  }
+}
+
+.nav > .nav-btn {
+  height: 100%;
+  display: none;
+}
+
+.nav-group {
+  width: 100%;
+  display: flex;
+  background-color: $background-color;
+  justify-content: flex-end;
+  padding: 0px;
+  font-size: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 20px;
+    height: 100%;
+    padding: 10px;
+  }
+  .nav > .nav-btn > label:hover,
+  .nav #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: flex;
+    width: 15px;
+    height: 2px;
+    align-items: center;
+    border-top: 1px solid #eee;
+  }
+  .nav .nav-group {
+    position: absolute;
+    display: block;
+    width: 50%;
+    text-align: right;
+
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 30px;
+    right: 0px;
+    z-index: 99;
+    font-size: 12px;
+  }
+  .nav > .nav-item > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-group {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-group {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+
+.nav-item {
+  padding: 10px;
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
+  &:hover {
+    background-color: $secondary-color;
+  }
+  &.sub .nav-group {
+    position: absolute;
+    display: block;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    width: inherit;
+    min-width: 200px;
+    top: 30px;
+    right: 0px;
+    z-index: 999;
+  }
+  &.sub .sub-nav {
+    &:not(:checked) ~ .nav-group {
+      height: 0px;
+    }
+    &:checked ~ .nav-group {
+      display: block;
+      height: inherit;
+    }
+  }
+  &.sub label:after {
+    content: " ";
+    border: solid $light-text-color;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 2px;
+    margin-left: 5px;
+    transform: rotate(45deg);
+  }
+  &.sub > .nav-group {
+    display: none;
+  }
+}

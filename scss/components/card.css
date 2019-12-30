@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:200,400,700&display=swap");
 body {
   font-family: "Roboto Slab", serif;
+  margin: 0px;
+  padding: 0px;
 }
 
 .card {

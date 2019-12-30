@@ -29,4 +29,7 @@ $disabled-text-color: rgb(139, 139, 139);
 
 body {
   font-family: $roboto;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
