@@ -3,6 +3,7 @@ body {
   font-family: "Roboto Slab", serif;
   margin: 0px;
   padding: 0px;
+  overflow-x: hidden;
 }
 
 .card {

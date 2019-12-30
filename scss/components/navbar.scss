@@ -1,138 +1,81 @@
 @import "../theme";
-.nav {
+
+nav {
   display: flex;
-  overflow: hidden;
   align-items: center;
-  width: 100%;
-  margin: 0px 0px 10px 0px;
   background-color: $background-color;
   box-shadow: $border-color 2px 3px 6px;
-  color: $light-text-color;
-  font-size: 15px;
-  font-weight: 200;
+  color: white;
+  width: 100%;
+  height: 50px;
+  line-height: 20px;
 }
 
-input[type="checkbox"] {
-  display: none;
-}
-
-.nav > .nav-header {
+.logo {
   display: flex;
-  font-size: 22px;
-  color: #fff;
-  margin-left: 20px;
+  align-items: center;
+  color: $light-text-color;
+  font-size: 20px;
+  width: 100%;
+  margin-left: 10px;
   & img {
-    height: 20px;
+    max-height: 30px;
     padding: 5px;
   }
 }
 
-.nav > .nav-btn {
-  height: 100%;
+ul {
   display: none;
-}
-
-.nav-group {
-  width: 100%;
-  display: flex;
+  list-style: none;
+  text-decoration: none;
+  padding-left: 0px;
+  position: relative;
   background-color: $background-color;
-  justify-content: flex-end;
-  padding: 0px;
-  font-size: 15px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-@media (max-width: 600px) {
-  .nav > .nav-btn {
-    display: inline-block;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-  }
-  .nav > .nav-btn > label {
-    display: inline-block;
-    width: 20px;
-    height: 100%;
-    padding: 10px;
-  }
-  .nav > .nav-btn > label:hover,
-  .nav #nav-check:checked ~ .nav-btn > label {
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-  .nav > .nav-btn > label > span {
-    display: flex;
-    width: 15px;
-    height: 2px;
-    align-items: center;
-    border-top: 1px solid #eee;
-  }
-  .nav .nav-group {
-    position: absolute;
-    display: block;
-    width: 50%;
-    text-align: right;
-
-    height: 0px;
-    transition: all 0.3s ease-in;
-    overflow-y: hidden;
-    top: 30px;
-    right: 0px;
-    z-index: 99;
-    font-size: 12px;
-  }
-  .nav > .nav-item > a {
-    display: block;
+  min-width: 100px;
+  &.main-element {
     width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    & li {
+      padding: 15px;
+      &:hover {
+        background-color: $border-color;
+      }
+    }
   }
-  .nav > #nav-check:not(:checked) ~ .nav-group {
-    height: 0px;
+  & .sub-nav {
+    position: absolute;
+    margin-top: 15px;
+    margin-left: -15px;
   }
-  .nav > #nav-check:checked ~ .nav-group {
-    height: calc(100vh - 50px);
-    overflow-y: auto;
+  & .sub-nav-1,
+  .sub-nav-2 {
+    position: absolute;
+    margin-top: -35px;
+    margin-left: -115px;
   }
 }
 
-.nav-item {
-  padding: 10px;
-  & a {
-    text-decoration: none;
-    color: inherit;
-  }
-  &:hover {
-    background-color: $secondary-color;
-  }
-  &.sub .nav-group {
+li:hover > ul.sub-nav,
+li:hover > ul.sub-nav-1,
+li:hover > ul.sub-nav-2 {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: $light-text-color;
+  font-size: 15px;
+  font-weight: 200;
+  &.sub:after {
+    content: "";
+    margin-top: 8px;
+    margin-left: 3px;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 5px solid $light-text-color;
     position: absolute;
-    display: block;
-    transition: all 0.3s ease-in;
-    overflow-y: hidden;
-    width: inherit;
-    min-width: 200px;
-    top: 30px;
-    right: 0px;
-    z-index: 999;
-  }
-  &.sub .sub-nav {
-    &:not(:checked) ~ .nav-group {
-      height: 0px;
-    }
-    &:checked ~ .nav-group {
-      display: block;
-      height: inherit;
-    }
-  }
-  &.sub label:after {
-    content: " ";
-    border: solid $light-text-color;
-    border-width: 0 1px 1px 0;
-    display: inline-block;
-    padding: 2px;
-    margin-left: 5px;
-    transform: rotate(45deg);
-  }
-  &.sub > .nav-group {
-    display: none;
   }
 }
