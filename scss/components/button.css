@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:200,400,700&display=swap");
+body {
+  font-family: "Roboto Slab", serif;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+.btn {
+  border-radius: 0.4em;
+  border: solid 0.09em;
+  padding: 0.5em;
+  text-decoration: none;
+  text-align: center;
+  border-color: rgba(182, 182, 182, 0.479);
+  color: #333333;
+}
+
+.btn:hover {
+  background-color: #607d8b;
+}
+
+.btn.primary {
+  border-radius: 0.4em;
+  border: solid 0.09em;
+  padding: 0.5em;
+  text-decoration: none;
+  background-color: #007bff;
+  color: #cce5ff;
+  border-color: #023f81;
+}
+
+.btn.primary:hover {
+  background-color: #66b0ff;
+}
+
+.btn.primary-outline {
+  border-radius: 0.4em;
+  border: solid 0.09em;
+  padding: 0.5em;
+  text-decoration: none;
+  background-color: #cce5ff;
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.btn.primary-outline:hover {
+  background-color: #66b0ff;
+}
+
+.btn.secondary {
+  border-radius: 0.4em;
+  border: solid 0.09em;
+  padding: 0.5em;
+  text-decoration: none;
+  background-color: #6c757d;
+  color: #d8dbdd;
+  border-color: #4b4a4a;
+}
+
+.btn.secondary:hover {
+  background-color: #a1a8ae;
+}
+
+.btn.secondary-outline {
+  border-radius: 0.4em;
+  border: solid 0.09em;
+  padding: 0.5em;
+  text-decoration: none;
+  background-color: #d8dbdd;
+  color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn.secondary-outline:hover {
+  background-color: #a1a8ae;
+}
+
+.btn.danger {
+  border-radius: 0.4em;
+  border: solid 0.09em;
+  padding: 0.5em;
+  text-decoration: none;
+  background-color: #dc3545;
+  color: #fae3e5;
+  border-color: #900e1b;
+}
+
+.btn.danger:hover {
+  background-color: #eb8c95;
+}
+
+.btn.danger-outline {
+  border-radius: 0.4em;
+  border: solid 0.09em;
+  padding: 0.5em;
+  text-decoration: none;
+  background-color: #fae3e5;
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn.danger-outline:hover {
+  background-color: #eb8c95;
+}
+
+.btn.warning {
+  border-radius: 0.4em;
+  border: solid 0.09em;
+  padding: 0.5em;
+  text-decoration: none;
+  background-color: #ffc107;
+  color: #fff4d3;
+  border-color: #7e620e;
+}
+
+.btn.warning:hover {
+  background-color: #ffdb6d;
+}
+
+.btn.warning-outline {
+  border-radius: 0.4em;
+  border: solid 0.09em;
+  padding: 0.5em;
+  text-decoration: none;
+  background-color: #fff4d3;
+  color: #ffc107;
+  border-color: #ffc107;
+}
+
+.btn.warning-outline:hover {
+  background-color: #ffdb6d;
+}
+
+.btn.success {
+  border-radius: 0.4em;
+  border: solid 0.09em;
+  padding: 0.5em;
+  text-decoration: none;
+  background-color: #28a745;
+  color: #afecbd;
+  border-color: #0a7423;
+}
+
+.btn.success:hover {
+  background-color: #5dd879;
+}
+
+.btn.success-outline {
+  border-radius: 0.4em;
+  border: solid 0.09em;
+  padding: 0.5em;
+  text-decoration: none;
+  background-color: #afecbd;
+  color: #28a745;
+  border-color: #28a745;
+}
+
+.btn.success-outline:hover {
+  background-color: #5dd879;
+}
+/*# sourceMappingURL=button.css.map */

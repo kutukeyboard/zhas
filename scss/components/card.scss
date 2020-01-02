@@ -1,172 +1,199 @@
-@import "../theme";
+@import "../theme.scss";
 
 @mixin st-primary {
-  background-color: $primary-color !important;
-  color: $light-text-color !important;
+  @include primary-color();
   &.bordered {
-    border: 0.5px solid $primary-border-color !important;
-  }
-  & a {
-    color: $primary-btn-color !important;
-    &.btn {
-      background-color: $primary-border-color !important;
-      color: $light-text-color !important;
-    }
+    border: 1px solid $primary-border-color;
   }
   & .card-header {
-    background-color: $primary-border-color !important;
+    background-color: $primary-border-color;
+    color: $primary-text-color;
   }
 }
 
 @mixin st-primary-outline {
-  background-color: $light-text-color !important;
-  color: $primary-color !important;
+  @include primary-outline-color();
+  background-color: #fff;
   &.bordered {
     border-radius: 5px;
-    border: 1px solid $primary-color !important;
-  }
-  & a {
-    color: $primary-btn-color !important;
-    &.btn {
-      background-color: $primary-color !important;
-      color: $light-text-color !important;
-    }
+    border: 1px solid;
   }
   & .card-header {
-    background-color: $light-bg-color !important;
-    color: $primary-color !important;
+    background-color: lighten($primary-color, 40%);
+    color: $primary-color;
   }
 }
 
 @mixin st-secondary {
-  background-color: $secondary-color !important;
-  color: $light-text-color !important;
+  @include secondary-color();
   &.bordered {
-    border: 1px solid $secondary-border-color !important;
-  }
-  & a {
-    color: $secondary-btn-color !important;
-    &.btn {
-      background-color: $secondary-btn-color !important;
-      color: $light-text-color !important;
-    }
+    border: 1px solid $secondary-border-color;
   }
   & .card-header {
-    background-color: $secondary-border-color !important;
+    background-color: $secondary-border-color;
+    color: $secondary-text-color;
   }
 }
 
 @mixin st-secondary-outline {
-  background-color: $light-text-color !important;
-  color: $secondary-color !important;
+  @include secondary-outline-color();
+  background-color: #fff;
   &.bordered {
     border-radius: 5px;
-    border: 1px solid $secondary-color !important;
-  }
-  & a {
-    color: $secondary-btn-color !important;
-    &.btn {
-      background-color: $secondary-color !important;
-      color: $light-text-color !important;
-    }
+    border: 1px solid $secondary-color;
   }
   & .card-header {
-    background-color: $light-bg-color !important;
-    color: $secondary-color !important;
+    background-color: lighten($secondary-color, 40%);
+    color: $secondary-color;
+  }
+}
+
+@mixin st-danger {
+  @include danger-color();
+  &.bordered {
+    border: 1px solid $danger-border-color;
+  }
+  & .card-header {
+    background-color: $danger-border-color;
+    color: $danger-text-color;
+  }
+}
+
+@mixin st-danger-outline {
+  @include danger-outline-color();
+  background-color: #fff;
+  &.bordered {
+    border-radius: 5px;
+    border: 1px solid $danger-color;
+  }
+  & .card-header {
+    background-color: lighten($danger-color, 40%);
+    color: $danger-color;
+  }
+}
+
+@mixin st-warning {
+  @include warning-color();
+  &.bordered {
+    border: 1px solid $warning-border-color;
+  }
+  & .card-header {
+    background-color: $warning-border-color;
+    color: $warning-text-color;
+  }
+}
+
+@mixin st-warning-outline {
+  @include warning-outline-color();
+  background-color: #fff;
+  &.bordered {
+    border-radius: 5px;
+    border: 1px solid $warning-color;
+  }
+  & .card-header {
+    background-color: lighten($warning-color, 40%);
+    color: $warning-color;
+  }
+}
+
+@mixin st-success {
+  @include success-color();
+  &.bordered {
+    border: 1px solid $success-border-color;
+  }
+  & .card-header {
+    background-color: $success-border-color;
+    color: $success-text-color;
   }
 }
 
 .card {
   width: 100%;
   position: relative;
-  background-color: $light-text-color;
   color: $text-color;
   &.shadow {
     box-shadow: $border-color 2px 3px 6px;
   }
   &.bordered {
-    border: 1px solid $border-color !important;
+    border: 1px solid $border-color;
     border-radius: 5px;
   }
-  &.style-primary {
-    @include st-primary();
+  & .card-header {
+    background-color: $light-bg-color;
+    border: inherit;
+    font-size: 20px;
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 5px 5px 0px 0px;
   }
-  &.style-primary-outline {
-    @include st-primary-outline();
+  & .card-body {
+    margin-bottom: 60px;
+    padding: 10px;
+    &:last-child {
+      margin-bottom: 10px !important;
+    }
+    & .card-title {
+      font-size: 20px;
+      font-weight: 400;
+      padding-bottom: 5px;
+    }
+    & .card-subtitle {
+      font-size: 15px;
+      color: $disabled-text-color;
+      padding-bottom: 5px;
+    }
   }
-  &.style-secondary {
-    @include st-secondary();
-  }
-  &.style-secondary-outline {
-    @include st-secondary-outline();
-  }
-}
-
-.card .border-bottom {
-  border-bottom: solid 1px $border-color;
-  margin-bottom: 10px !important;
-}
-.card > .card-header {
-  font-size: 25px;
-  padding: 9px;
-  color: $light-text-color;
-  border-radius: 4px 4px 0px 0px;
-}
-
-.card .card-body {
-  margin-bottom: 60px;
-  padding: 10px;
-  &:last-child {
+  & .border-bottom {
+    border-bottom: solid 1px $border-color;
     margin-bottom: 10px !important;
   }
-}
-
-.card .card-title {
-  font-size: 20px;
-  font-weight: 600;
-  padding-bottom: 5px;
-  & + .card-subtitle {
-    font-size: 15px;
-    color: $disabled-text-color;
-  }
-}
-
-.card .card-subtitle {
-  font-size: 15px;
-  color: $disabled-text-color;
-  padding-bottom: 5px;
-}
-
-.card img {
-  width: 100%;
-  padding: 0px !important;
-  &:first-child {
+  & img {
+    width: 100%;
     padding: 0px !important;
-    margin-top: 0px !important;
-    border-radius: 5px 5px 0px 0px !important;
+    &:first-child {
+      padding: 0px !important;
+      margin-top: 0px !important;
+      border-radius: 5px 5px 0px 0px !important;
+    }
+    &:last-child {
+      border-radius: 0px 0px 5px 5px;
+      margin-bottom: 0px !important;
+      padding-bottom: 0px !important;
+      bottom: 0px;
+    }
   }
-  &:last-child {
-    border-radius: 0px 0px 5px 5px;
-    margin-bottom: 0px !important;
-    padding-bottom: 0px !important;
-    bottom: 0px;
+  & .btn {
+    position: absolute;
+    right: 5px;
+    left: 5px;
+    bottom: 10px;
   }
-}
 
-.card a.btn {
-  border: solid 1px $border-color;
-  background-color: $primary-color;
-  color: $light-text-color;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: smaller;
-  text-decoration: none;
-  text-align: center;
-  position: absolute;
-  right: 10px;
-  left: 10px;
-  bottom: 10px;
-  &:hover {
-    background-color: $primary-dark-color;
+  &.primary {
+    @include st-primary();
+  }
+  &.primary-outline {
+    @include st-primary-outline();
+  }
+  &.secondary {
+    @include st-secondary();
+  }
+  &.secondary-outline {
+    @include st-secondary-outline();
+  }
+  &.danger {
+    @include st-danger();
+  }
+  &.danger-outline {
+    @include st-danger-outline();
+  }
+  &.warning {
+    @include st-warning();
+  }
+  &.warning-outline {
+    @include st-warning-outline();
+  }
+  &.success {
+    @include st-success();
   }
 }

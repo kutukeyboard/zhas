@@ -4,24 +4,96 @@ $roboto: "Roboto Slab", serif;
 $open-sans: "Open Sans", sans-serif;
 
 // colors
-$background-color: rgb(75, 74, 74);
+$bg-color: rgb(75, 74, 74);
 $border-color: rgba(182, 182, 182, 0.479);
+$light-bg-color: #bebdbd;
 
 $primary-color: #007bff;
 $primary-border-color: #023f81;
 $primary-btn-color: #023f81;
+$primary-text-color: lighten($primary-color, 40%);
+
+@mixin primary-color {
+  background-color: $primary-color;
+  color: $primary-text-color;
+  border-color: $primary-border-color;
+}
+
+@mixin primary-outline-color {
+  background-color: lighten($primary-color, 40%);
+  color: $primary-color;
+  border-color: $primary-color;
+}
 
 $secondary-color: #6c757d;
 $secondary-border-color: rgb(75, 74, 74);
 $secondary-btn-color: rgb(75, 74, 74);
+$secondary-text-color: lighten($secondary-color, 40%);
+
+@mixin secondary-color {
+  background-color: $secondary-color;
+  color: $secondary-text-color;
+  border-color: $secondary-border-color;
+}
+
+@mixin secondary-outline-color {
+  background-color: lighten($secondary-color, 40%);
+  color: $secondary-color;
+  border-color: $secondary-color;
+}
 
 $danger-color: #dc3545;
+$danger-border-color: #900e1b;
+$danger-btn-color: #900e1b;
+$danger-text-color: lighten($danger-color, 40%);
+
+@mixin danger-color {
+  background-color: $danger-color;
+  color: $danger-text-color;
+  border-color: $danger-border-color;
+}
+
+@mixin danger-outline-color {
+  background-color: lighten($danger-color, 40%);
+  color: $danger-color;
+  border-color: $danger-color;
+}
+
 $warning-color: #ffc107;
+$warning-border-color: #7e620e;
+$warning-btn-color: #7e620e;
+$warning-text-color: lighten($warning-color, 40%);
+
+@mixin warning-color {
+  background-color: $warning-color;
+  color: $warning-text-color;
+  border-color: $warning-border-color;
+}
+
+@mixin warning-outline-color {
+  background-color: lighten($warning-color, 40%);
+  color: $warning-color;
+  border-color: $warning-color;
+}
+
+$success-color: #28a745;
+$success-border-color: #0a7423;
+$success-btn-color: #0a7423;
+$success-text-color: lighten($success-color, 40%);
+
+@mixin success-color {
+  background-color: $success-color;
+  color: $success-text-color;
+  border-color: $success-border-color;
+}
+
+@mixin success-outline-color {
+  background-color: lighten($success-color, 40%);
+  color: $success-color;
+  border-color: $success-color;
+}
+
 $info-color: #17a2b8;
-
-$light-bg-color: #f8f9fa;
-$dark-bg-color: #343a40;
-
 $primary-dark-color: #607d8b;
 $light-text-color: #fff;
 $text-color: rgb(51, 51, 51);

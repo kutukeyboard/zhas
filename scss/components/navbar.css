@@ -6,7 +6,7 @@ body {
   overflow-x: hidden;
 }
 
-input[type="checkbox"] {
+input#burger {
   display: none;
 }
 
@@ -26,7 +26,17 @@ nav {
   line-height: 20px;
 }
 
-.logo {
+nav form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav form * {
+  margin-left: 5px;
+}
+
+nav .logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -39,21 +49,81 @@ nav {
   margin-left: 10px;
 }
 
-.logo img {
+nav .logo img {
   max-height: 30px;
   padding: 5px;
 }
 
-.bar {
+nav .burger-menu {
+  background-color: #4b4a4a;
+  display: none;
+}
+
+nav .burger-menu .bar {
   width: 25px;
   height: 2px;
   background-color: #fff;
   margin: 6px 20px;
 }
 
-.burger-menu {
-  background-color: #4b4a4a;
+nav ul {
   display: none;
+  list-style: none;
+  text-decoration: none;
+  padding-left: 0px;
+  background-color: #4b4a4a;
+  min-width: 100px;
+  z-index: 999;
+}
+
+nav ul.main-element {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav ul.main-element li {
+  padding: 15px;
+}
+
+nav ul.main-element li:hover {
+  background-color: #bebdbd;
+  color: #333333;
+}
+
+nav ul .sub-nav {
+  position: absolute;
+}
+
+nav ul.sub-nav-1,
+nav ul .sub-nav-2 {
+  position: absolute;
+}
+
+nav li:hover > ul.sub-nav,
+nav li:hover > ul.sub-nav-1,
+nav li:hover > ul.sub-nav-2 {
+  display: block;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 200;
+}
+
+nav ul li a.sub:after {
+  content: "";
+  margin-top: 8px;
+  margin-left: 3px;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 5px solid #fff;
+  position: absolute;
 }
 
 @media only screen and (min-width: 600px) {
@@ -82,7 +152,10 @@ nav {
 }
 
 @media only screen and (max-width: 599px) {
-  .burger-menu {
+  nav form {
+    display: none;
+  }
+  nav .burger-menu {
     display: block;
   }
   #burger:checked ~ ul.main-element {
@@ -110,63 +183,5 @@ nav {
     margin-top: -35px;
     margin-left: -110px;
   }
-}
-
-ul {
-  display: none;
-  list-style: none;
-  text-decoration: none;
-  padding-left: 0px;
-  background-color: #4b4a4a;
-  min-width: 100px;
-}
-
-ul.main-element {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-ul.main-element li {
-  padding: 15px;
-}
-
-ul.main-element li:hover {
-  background-color: rgba(182, 182, 182, 0.479);
-}
-
-ul .sub-nav {
-  position: absolute;
-}
-
-ul.sub-nav-1,
-ul .sub-nav-2 {
-  position: absolute;
-}
-
-li:hover > ul.sub-nav,
-li:hover > ul.sub-nav-1,
-li:hover > ul.sub-nav-2 {
-  display: block;
-}
-
-a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 200;
-}
-
-a.sub:after {
-  content: "";
-  margin-top: 8px;
-  margin-left: 3px;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-top: 5px solid #fff;
-  position: absolute;
 }
 /*# sourceMappingURL=navbar.css.map */
