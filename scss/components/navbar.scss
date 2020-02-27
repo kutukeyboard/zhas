@@ -4,143 +4,244 @@ input#burger {
   display: none;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  background-color: $bg-color;
-  box-shadow: $border-color 2px 3px 6px;
-  color: white;
-  width: 100%;
-  height: 50px;
-  line-height: 20px;
-  & form {
-    display: flex;
-    & * {
-      margin-left: 5px;
+@media only screen and (min-width: 600px) {
+  nav {
+    & .burger-menu {
+      display: none;
     }
-  }
-  & .logo {
-    display: flex;
-    align-items: center;
-    color: $light-text-color;
-    font-size: 20px;
-    width: 100%;
-    margin-left: 10px;
-    & img {
-      max-height: 30px;
-      padding: 5px;
-    }
-  }
-  & .burger-menu {
-    background-color: $bg-color;
-    display: none;
-    & .bar {
-      width: 25px;
-      height: 2px;
-      background-color: $light-text-color;
-      margin: 6px 20px;
-    }
-  }
-  & ul {
-    display: none;
-    list-style: none;
-    text-decoration: none;
-    padding-left: 0px;
-    background-color: $bg-color;
-    min-width: 100px;
-    z-index: 999;
-    &.main-element {
-      justify-content: flex-end;
-      align-items: center;
-      // flex-direction: row;
-      & li {
-        padding: 15px;
-        &:hover {
-          background-color: $light-bg-color;
-          color: $text-color;
+    & ul {
+      border-radius: 5px;
+      & > li.sub {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        &:after {
+          content: "";
+          margin-top: 8px;
+          margin-left: 10px;
+          border-left: 3px solid transparent;
+          border-right: 3px solid transparent;
+          border-top: 5px solid;
+        }
+        & ul {
+          border: 0.5px solid $bg-color;
+          border-radius: 5px;
         }
       }
     }
-    & .sub-nav {
-      position: absolute;
-    }
-    &.sub-nav-1,
-    .sub-nav-2 {
-      position: absolute;
-    }
   }
-  & li:hover > ul.sub-nav,
-  li:hover > ul.sub-nav-1,
-  li:hover > ul.sub-nav-2 {
-    display: block;
-  }
-  & ul li a {
-    text-decoration: none;
-    color: $light-text-color;
-    font-size: 15px;
-    font-weight: 200;
-    &.sub:after {
-      content: "";
-      margin-top: 8px;
-      margin-left: 3px;
-      border-left: 3px solid transparent;
-      border-right: 3px solid transparent;
-      border-top: 5px solid $light-text-color;
-      position: absolute;
-    }
-  }
-}
 
-@media only screen and (min-width: 600px) {
-  ul {
-    position: relative;
-    &.main-element {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-    }
-    & .sub-nav {
-      margin-top: 15px;
-      margin-left: -15px;
-    }
-    & .sub-nav-1,
-    .sub-nav-2 {
-      margin-top: -35px;
-      margin-left: -115px;
-    }
+  .main > li.sub:hover > ul {
+    position: absolute;
+    display: block;
+    top: 100%;
+  }
+
+  li.sub li.sub:hover > ul {
+    display: inline-block;
+    top: 0px;
+    position: absolute;
+    left: 98%;
+  }
+  .logo img {
+    margin-left: 15px;
   }
 }
 
 @media only screen and (max-width: 599px) {
-  nav {
-    & form {
-      display: none;
-    }
-    & .burger-menu {
-      display: block;
+  ul.main {
+    z-index: 1;
+    display: none;
+  }
+  .logo {
+    & img {
+      margin-left: 0px;
+      align-items: center;
     }
   }
 
-  #burger:checked ~ ul.main-element {
+  li.sub {
     display: flex;
+    flex-direction: column;
+
+    & > a:after {
+      content: "";
+      right: 20px;
+      margin-top: 8px;
+      margin-left: 10px;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-top: 5px solid;
+      position: absolute;
+    }
   }
-  ul {
-    &.main-element {
-      position: absolute;
-      top: 30px;
-      right: 0px;
-      display: none;
-      flex-direction: column;
+
+  li.sub:hover > ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  #burger:checked ~ ul.main {
+    display: inline-block;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+  }
+}
+
+nav {
+  display: flex;
+  align-items: center;
+
+  background-color: $light-bg-color;
+  box-shadow: $border-color 2px 3px 6px;
+  width: 100%;
+  height: 50px;
+  line-height: 20px;
+  font-weight: 200;
+
+  & .logo {
+    color: $text-color;
+
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    & a {
+      text-decoration: none;
+      color: $text-color;
     }
-    & .sub-nav {
-      position: absolute;
-      margin-top: -35px;
-      margin-left: -120px;
+    & img {
+      height: 30px;
+      margin-right: 5px;
     }
-    &.sub-nav-1,
-    .sub-nav-2 {
-      margin-top: -35px;
-      margin-left: -110px;
+  }
+
+  & ul.main {
+    & li {
+      padding: 10px;
+    }
+  }
+  & .burger-menu {
+    background-color: inherit;
+    margin-left: 15px;
+    margin-right: 5px;
+    & .bar {
+      width: 25px;
+      height: 2px;
+      background-color: $text-color;
+      margin: 6px auto;
+    }
+  }
+
+  & ul {
+    display: flex;
+    list-style: none;
+    z-index: 1;
+    margin: 0px 0px 0px 2px;
+    padding: 0px;
+
+    background-color: $light-bg-color;
+
+    & > li {
+      &.sub {
+        color: $text-color;
+        &:hover {
+          color: $light-text-color;
+        }
+        & ul {
+          width: max-content;
+          display: none;
+        }
+      }
+    }
+  }
+
+  & li,
+  li > a {
+    color: $text-color;
+    text-decoration: none;
+    &:hover {
+      color: white;
+    }
+  }
+
+  &.dark {
+    background-color: $bg-color;
+    & .logo {
+      color: $light-text-color;
+      & a {
+        text-decoration: none;
+        color: $light-text-color;
+      }
+    }
+    & .main,
+    .main li ul {
+      background-color: $bg-color;
+    }
+
+    & .main ~ ul {
+      border: 0.5px solid $primary-border-color;
+    }
+
+    & li,
+    li > a,
+    li.sub,
+    a {
+      color: $light-text-color;
+      &:hover {
+        color: lighten($bg-color, 20%);
+      }
+    }
+    & .bar {
+      background-color: $light-text-color;
+    }
+    & ~ li.sub:after {
+      border-top: 5px solid $text-color;
+      color: $light-text-color;
+    }
+  }
+
+  &.primary {
+    background-color: $primary-color;
+    & .logo {
+      color: $primary-text-color;
+      & a {
+        text-decoration: none;
+        color: $primary-text-color;
+      }
+    }
+    & .main,
+    .main li ul {
+      background-color: $primary-color;
+    }
+
+    & .main ~ ul {
+      border: 0.5px solid $primary-border-color;
+    }
+
+    & li,
+    li > a,
+    li.sub,
+    a {
+      color: $primary-text-color;
+      &:hover {
+        color: lighten($primary-color, 20%);
+      }
+    }
+    & .bar {
+      background-color: $primary-text-color;
+    }
+    & ~ li.sub:after {
+      border-top: 5px solid $primary-text-color;
+      color: $primary-text-color;
     }
   }
 }

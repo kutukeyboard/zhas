@@ -74,6 +74,10 @@
 
 @mixin st-warning {
   @include warning-color();
+  &.card,
+  .card-body {
+    color: $warning-border-color;
+  }
   &.bordered {
     border: 1px solid $warning-border-color;
   }
@@ -110,25 +114,35 @@
 .card {
   width: 100%;
   position: relative;
-  color: $text-color;
+
+  & a,
+  .card-body > a,
+  .card-header > a,
+  .card-title > a,
+  .card-subtitle > a {
+    text-decoration: none;
+  }
+
   &.shadow {
     box-shadow: $border-color 2px 3px 6px;
   }
   &.bordered {
     border: 1px solid $border-color;
     border-radius: 5px;
+    overflow: hidden;
   }
   & .card-header {
     background-color: $light-bg-color;
-    border: inherit;
     font-size: 20px;
     padding: 10px;
-    font-weight: 600;
-    border-radius: 5px 5px 0px 0px;
+    font-weight: 400;
+    text-decoration: none;
+    border-radius: 4px 4px 0px 0px;
   }
   & .card-body {
     margin-bottom: 60px;
     padding: 10px;
+
     &:last-child {
       margin-bottom: 10px !important;
     }

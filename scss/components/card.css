@@ -9,7 +9,14 @@ body {
 .card {
   width: 100%;
   position: relative;
-  color: #333333;
+}
+
+.card a,
+.card .card-body > a,
+.card .card-header > a,
+.card .card-title > a,
+.card .card-subtitle > a {
+  text-decoration: none;
 }
 
 .card.shadow {
@@ -20,15 +27,16 @@ body {
 .card.bordered {
   border: 1px solid rgba(182, 182, 182, 0.479);
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .card .card-header {
-  background-color: #bebdbd;
-  border: inherit;
+  background-color: #d6d6d6;
   font-size: 20px;
   padding: 10px;
-  font-weight: 600;
-  border-radius: 5px 5px 0px 0px;
+  font-weight: 400;
+  text-decoration: none;
+  border-radius: 4px 4px 0px 0px;
 }
 
 .card .card-body {
@@ -182,6 +190,11 @@ body {
   background-color: #ffc107;
   color: #fff4d3;
   border-color: #7e620e;
+}
+
+.card.warning.card,
+.card.warning .card-body {
+  color: #7e620e;
 }
 
 .card.warning.bordered {
